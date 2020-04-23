@@ -116,6 +116,7 @@ class Agent:
         Learn from given batch
         :param batch: Sampled batch from experience replay buffer
         :return: (critic_loss, actor_loss)
+        Thanks for the udacity ddpg_bipedal implementation here.
         """
 
         if batch is None:

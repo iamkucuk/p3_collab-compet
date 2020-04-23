@@ -39,6 +39,7 @@ Simply run: ```pip install --upgrade tqdm```
 
 
 ### Getting Started
+
 1. Download the [Udacity DRLND GitHub repo](https://github.com/udacity/deep-reinforcement-learning), create and install necessary components as mentioned in DRLND Readme. Don't forget to upgrade tqdm.
 
 2. Download the environment from one of the links below.  You need only select the environment that matches your operating system:

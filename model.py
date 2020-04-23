@@ -14,7 +14,12 @@ def hidden_init(layer):
 class Actor(nn.Module):
 
     def __init__(self, state_size, action_size, fc_units=None):
-
+        """
+        Actor model for the actor part of the agent
+        :param state_size: Input size of the model. Probably same as the environment state size
+        :param action_size: Output size of the model. Probably same as the environment action size
+        :param fc_units: (List with length of 2) Determines the number of neurons in each hidden layer
+        """
         super(Actor, self).__init__()
         if fc_units is None:
             fc_units = [512, 256]
@@ -37,7 +42,12 @@ class Actor(nn.Module):
 class Critic(nn.Module):
 
     def __init__(self, state_size, action_size, fc_units=None):
-
+        """
+        Critic model for the critic part of the agent
+        :param state_size: Input size of the model. Probably same as the environment state size
+        :param action_size: Should be at the same size as the Actor model.
+        :param fc_units: (List with length of 2) Determines the number of neurons in each hidden layer
+        """
         super(Critic, self).__init__()
         if fc_units is None:
             fc_units = [512, 256]

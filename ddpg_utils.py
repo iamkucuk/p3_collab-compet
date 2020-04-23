@@ -31,17 +31,36 @@ class OUNoise:
 
 class ReplayMemory:
     def __init__(self, memory_size, batch_size=None):
+        """
+        Experience Replay Memory buffer
+        :param memory_size: Size of the memory
+        :param batch_size: Number of samples to construct a single batch
+        """
         self.batch_size = batch_size
         self.memory_size = memory_size
         self.experience = namedtuple("Experience", ["state", "action", "reward", "next_state", "done"])
         self.memory = deque(maxlen=int(memory_size))
 
     def append(self, states, actions, rewards, next_states, dones):
+        """
+        Append given experiences to replay buffer
+        :param states: List of states
+        :param actions: List of actions
+        :param rewards: List of rewards
+        :param next_states: List of next states
+        :param dones: List of dones
+        """
         for state, action, reward, next_state, done in zip(states, actions, rewards, next_states, dones):
             e = self.experience(state, action, reward, next_state, done)
             self.memory.append(e)
 
     def sample(self, batch_size=None, device="cpu"):
+        """
+        Sample a processed batch for training process
+        :param batch_size: Batch size. This will override the batch size given when the buffer creation
+        :param device: Device to utilize
+        :return: Tensors with a single batch in it
+        """
         if batch_size is None and self.batch_size is not None:
             batch_size = self.batch_size
 

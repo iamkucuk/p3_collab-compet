@@ -34,6 +34,7 @@ The environment is considered solved, when the average (over 100 episodes) of th
 - Unity environment (can be downloaded below)
 
 *: These packages comes with the Udacity python package
+
 **: tqdm also comes with the Udacity python package. However, Udacity python package has an earlier version of it. You need to update it to a more recent version.
 Simply run: ```pip install --upgrade tqdm```
 
